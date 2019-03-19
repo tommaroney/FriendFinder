@@ -38,10 +38,10 @@ const friends = {
     add: function(newSurveyObj) {
         return new Promise((resolve, reject) => {
             this.all().then((response) => {
-                
+
                 insertFriend(newSurveyObj);
 
-                if(typeof response === "String")
+                if(typeof response === "string")
                     resolve(response);
 
                 else {
