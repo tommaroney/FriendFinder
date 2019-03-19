@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>FriendFinder</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Survey Questions</h2>
+        <hr>
+        <h3>
+            <strong>About You</strong>
+        </h3>
+        <form>
+            <div class="form-group">
+                <label for="userName">Name</label>
+                <input type="text" class="form-control" id="userName" placeholder="John Smith"/>
+            </div>
+            <div class="form-group">
+                <label for="photoLink">Name</label>
+                <input type="text" class="form-control" id="photoLink" placeholder="http://www.photoplace.com/myphoto.jpg"/>
+            </div>
+            <hr>
+            <h3>
+                <strong>Question 1</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q1">Make a Question</label>
+                <select class="form-control" name="q1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 2</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q2">Make a Question</label>
+                <select class="form-control" name="q2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 3</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q3">Make a Question</label>
+                <select class="form-control" name="q3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 4</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q4">Make a Question</label>
+                <select class="form-control" name="q4">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 5</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q5">Make a Question</label>
+                <select class="form-control" name="q5">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 6</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q6">Make a Question</label>
+                <select class="form-control" name="q6">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 7</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q7">Make a Question</label>
+                <select class="form-control" name="q7">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 8</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q8">Make a Question</label>
+                <select class="form-control" name="q8">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 9</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q9">Make a Question</label>
+                <select class="form-control" name="q9">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <h3>
+                <strong>Question 10</strong>
+            </h3>
+            <div class="form-group">
+                <label for="q10">Make a Question</label>
+                <select class="form-control" name="q10">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary" id="apiPOST">Submit</button>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="bf-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Your New Best Friend!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h2 id="bf-name">Chris Hemsworth</h2>
+              <img id="bf-pic" src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBPYn1e.img?h=1014&w=799&m=6&q=60&o=f&l=f&x=1368&y=1700" alt="Picture of Your New Friend"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="./js/friends.js"></script>
+</html>
