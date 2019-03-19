@@ -6,27 +6,32 @@ const friends = {
             connection.query("select * from friends right join survey on friends.id = survey.friend_id", (err, results, fields) => {
                 if(err) reject(err);
 
-                let friendsArr = [];
-                results.forEach((friend) => {
-                    friendsArr.push({
-                        "name": friend.name,
-                        "photo": friend.photo,
-                        "friend_id": friend.friend_id,
-                        "scores": [
-                            friend.q1,
-                            friend.q2,
-                            friend.q3,
-                            friend.q4,
-                            friend.q5,
-                            friend.q6,
-                            friend.q7,
-                            friend.q8,
-                            friend.q9,
-                            friend.q10,
-                        ]
+                if(results === undefined)
+                    resolve("Friends database is empty");
+
+                else {
+                    let friendsArr = [];
+                    results.forEach((friend) => {
+                        friendsArr.push({
+                            "name": friend.name,
+                            "photo": friend.photo,
+                            "friend_id": friend.friend_id,
+                            "scores": [
+                                friend.q1,
+                                friend.q2,
+                                friend.q3,
+                                friend.q4,
+                                friend.q5,
+                                friend.q6,
+                                friend.q7,
+                                friend.q8,
+                                friend.q9,
+                                friend.q10,
+                            ]
+                        });
                     });
-                });
-                resolve(friendsArr);
+                    resolve(friendsArr);
+                }
             });
         });
     },
@@ -34,43 +39,48 @@ const friends = {
         return new Promise((resolve, reject) => {
             this.all().then((response) => {
 
-                insertFriend(newSurveyObj);
+                if(typeof response === "String")
+                    resolve(response);
 
-                let bestFriendScore, bestFriendIndex;
-                let currentAnswers = [
-                    newSurveyObj.answers.q1,
-                    newSurveyObj.answers.q2,
-                    newSurveyObj.answers.q3,
-                    newSurveyObj.answers.q4,
-                    newSurveyObj.answers.q5,
-                    newSurveyObj.answers.q6,
-                    newSurveyObj.answers.q7,
-                    newSurveyObj.answers.q8,
-                    newSurveyObj.answers.q9,
-                    newSurveyObj.answers.q10,
-                ];
-               
+                else {
+                    insertFriend(newSurveyObj);
 
-                response.forEach((potentialFriend, potentialFriendIndex) => {
+                    let bestFriendScore, bestFriendIndex;
+                    let currentAnswers = [
+                        newSurveyObj.answers.q1,
+                        newSurveyObj.answers.q2,
+                        newSurveyObj.answers.q3,
+                        newSurveyObj.answers.q4,
+                        newSurveyObj.answers.q5,
+                        newSurveyObj.answers.q6,
+                        newSurveyObj.answers.q7,
+                        newSurveyObj.answers.q8,
+                        newSurveyObj.answers.q9,
+                        newSurveyObj.answers.q10,
+                    ];
+                
 
-                    let compatibilityScore = 0;
+                    response.forEach((potentialFriend, potentialFriendIndex) => {
 
-                    for(i = 0; i < currentAnswers.length; i++) {
-                        compatibilityScore += Math.abs(parseInt(currentAnswers[i]) - parseInt(potentialFriend.scores[i]));
-                    }
+                        let compatibilityScore = 0;
 
-                    if(bestFriendScore === undefined) {
-                        bestFriendScore = compatibilityScore;
-                        bestFriendIndex = potentialFriendIndex;
-                    }
+                        for(i = 0; i < currentAnswers.length; i++) {
+                            compatibilityScore += Math.abs(parseInt(currentAnswers[i]) - parseInt(potentialFriend.scores[i]));
+                        }
 
-                    else if(compatibilityScore < bestFriendScore) {
-                        bestFriendIndex = potentialFriendIndex;
-                        bestFriendScore = compatibilityScore;
-                    }
-                });
+                        if(bestFriendScore === undefined) {
+                            bestFriendScore = compatibilityScore;
+                            bestFriendIndex = potentialFriendIndex;
+                        }
 
-                resolve(response[bestFriendIndex]);
+                        else if(compatibilityScore < bestFriendScore) {
+                            bestFriendIndex = potentialFriendIndex;
+                            bestFriendScore = compatibilityScore;
+                        }
+                    });
+
+                    resolve(response[bestFriendIndex]);
+                }
             });
 
             

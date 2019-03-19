@@ -22,14 +22,23 @@ $("#apiPOST").on("click", (event) => {
         url: "/api/friends",
         data: newSurvey,
     }).then((response) => {
-        console.log(response);
-        $("#bf-name").text(response.name);
-        $("#bf-pic").attr("src", response.photo).attr("width", "300px")
-        $("#bf-modal").modal({
-            backdrop: "static",
-            keyboard: true,
-            show: true
-        });
+        if(response === "Friends database is empty") {
+            $("#bf-name").text("We have no friends for you.  Here is a picture of Chris Hemsworth");
+            $("#bf-modal").modal({
+                show: true,
+            });
+        }
+
+
+        else {
+            $("#bf-name").text(response.name);
+            $("#bf-pic").attr("src", response.photo).attr("width", "300px")
+            $("#bf-modal").modal({
+                backdrop: "static",
+                keyboard: true,
+                show: true
+            });
+        }
     });
     
 });

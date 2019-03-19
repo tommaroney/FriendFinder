@@ -12,7 +12,6 @@ router.get("/friends", (req, res) => {
 router.post("/friends", (req, res) => {
     friends.add(req.body)
         .then((response) => res.send(response))
-    
 });
 
 module.exports = router;
