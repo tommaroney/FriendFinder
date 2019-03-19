@@ -1,12 +1,4 @@
-const mysql = require("mysql");
-
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "root",
-    database: "friendsdb"
-});
+const connection = require("./connection.js")
 
 const friends = {
     all: function() {
