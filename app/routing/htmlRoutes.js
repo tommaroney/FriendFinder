@@ -9,7 +9,7 @@ router.get("/survey", (req, res) => {
 });
 
 router.get("/*", (req, res) => {
-    res.sendFile(path.normalize(path.normalize(__dirname + "/.."), "views", "home"));
+    res.sendFile(path.join(path.normalize(__dirname + "/.."), "views", "home.html"));
 });
 
 module.exports = router;
