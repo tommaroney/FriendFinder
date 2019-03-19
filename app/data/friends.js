@@ -41,7 +41,7 @@ const friends = {
 
                 insertFriend(newSurveyObj);
 
-                if(typeof response === "string")
+                if(typeof response == "string")
                     resolve(response);
 
                 else {
