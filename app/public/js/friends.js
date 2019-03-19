@@ -22,9 +22,9 @@ $("#apiPOST").on("click", (event) => {
         url: "/api/friends",
         data: newSurvey,
     }).then((response) => {
-        console.log(response);
+        
         if(response === "Friends database is empty") {
-            $("#bf-name").text("We have no friends for you.  Here is a picture of Chris Hemsworth");
+            $("#bf-name").text("We have no friends for you.  Here is a picture of Chris Hemsworth.");
             $("#bf-modal").modal({
                 show: true,
             });
