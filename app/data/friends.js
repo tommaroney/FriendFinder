@@ -38,12 +38,13 @@ const friends = {
     add: function(newSurveyObj) {
         return new Promise((resolve, reject) => {
             this.all().then((response) => {
+                
+                insertFriend(newSurveyObj);
 
                 if(typeof response === "String")
                     resolve(response);
 
                 else {
-                    insertFriend(newSurveyObj);
 
                     let bestFriendScore, bestFriendIndex;
                     let currentAnswers = [
