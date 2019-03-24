@@ -1,3 +1,8 @@
+$("button.close").on("click", (event) => {
+    console.log(window.location.hostname);
+    window.location.href = window.location.hostname;
+});
+
 console.log("Working");
 
 $("#apiPOST").on("click", (event) => {
@@ -46,13 +51,10 @@ $("#apiPOST").on("click", (event) => {
                 show: true,
             });
 
-            $("#button.close").on("click", (event) => {
-                window.location.href = window.location.hostname;
-            });
-
+            
         });
     }
-
+    
     else $("div.form-group").addClass("was-validated");
     
 });
