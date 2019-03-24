@@ -46,6 +46,10 @@ $("#apiPOST").on("click", (event) => {
                 show: true,
             });
 
+            $("#button.close").on("click", (event) => {
+                window.location.href = window.location.hostname;
+            });
+
         });
     }
 
